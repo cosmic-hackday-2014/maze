@@ -19,7 +19,7 @@ input[type="radio"] {
     display: none;
 }
 input[type="radio"]+label {
-    background: url('stars.jpg');
+    background: url('stars.png');
     padding-left:30px;
 }
 
