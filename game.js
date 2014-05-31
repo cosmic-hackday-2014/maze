@@ -9,10 +9,10 @@ function preload() {
     game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
     game.load.image('ship', 'assets/sprites/thrust_ship2.png');
     game.load.image('angel', 'assets/sprites/angel.jpeg');
-    game.load.image('angel', 'assets/sprites/buildingmanager.jpeg');
-    game.load.image('angel', 'assets/sprites/magician.jpeg');
-    game.load.image('angel', 'assets/sprites/nurse.jpeg');
-    game.load.image('angel', 'assets/sprites/puppy.jpeg');
+    game.load.image('buildingmanager', 'assets/sprites/buildingmanager.jpeg');
+    game.load.image('magician', 'assets/sprites/magician.jpeg');
+    game.load.image('nurse', 'assets/sprites/nurse.jpeg');
+    game.load.image('puppy', 'assets/sprites/puppy.jpeg');
 }
 
 var ship;
@@ -47,8 +47,12 @@ function create() {
 
     ship = game.add.sprite(200, 200, 'ship');
     game.physics.p2.enable(ship);
-
+    ship.body.onBeginContact.add(blockHit, this);
     game.camera.follow(ship);
+
+    nurse = game.add.sprite(100, 500, 'nurse');
+    game.physics.p2.enable(nurse);
+
 
     //  By default the ship will collide with the World bounds,
     //  however because you have changed the size of the world (via layer.resizeWorld) to match the tilemap
@@ -63,6 +67,14 @@ function create() {
 
     cursors = game.input.keyboard.createCursorKeys();
 
+}
+
+function blockHit (body, shapeA, shapeB, equation) {
+    if (!body.sprite) {
+        return;
+    }
+
+    alert("hit:" + body.sprite.key);
 }
 
 function update() {
