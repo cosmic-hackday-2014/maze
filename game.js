@@ -9,10 +9,10 @@ function preload() {
     game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
     game.load.image('ship', 'assets/sprites/thrust_ship2.png');
     game.load.image('angel', 'assets/sprites/angel.jpeg');
-    game.load.image('buildingmanager', 'assets/sprites/buildingmanager.jpeg');
-    game.load.image('magician', 'assets/sprites/magician.jpeg');
-    game.load.image('nurse', 'assets/sprites/nurse.jpeg');
-    game.load.image('puppy', 'assets/sprites/puppy.jpeg');
+    game.load.image('buildingmanager', 'assets/sprites/thrust_ship2.png');
+    game.load.image('magician', 'assets/sprites/thrust_ship2.png');
+    game.load.image('nurse', 'assets/sprites/thrust_ship2.png');
+    game.load.image('puppy', 'assets/sprites/thrust_ship2.png');
 }
 
 var ship;
@@ -50,7 +50,7 @@ function create() {
     ship.body.onBeginContact.add(blockHit, this);
     game.camera.follow(ship);
 
-    nurse = game.add.sprite(100, 500, 'nurse');
+    nurse = game.add.sprite(350, 250, 'nurse');
     game.physics.p2.enable(nurse);
 
 
@@ -75,6 +75,13 @@ function blockHit (body, shapeA, shapeB, equation) {
     }
 
     alert("hit:" + body.sprite.key);
+    console.log("hit:" + body.sprite.key);
+    var html = $("#" + body.sprite.key);
+    if (!html) {
+        return;
+    }
+
+    html.show();
 }
 
 function update() {
