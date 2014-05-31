@@ -122,6 +122,7 @@ function render() {
 function submitReturn() {
     // submit feedback 
     // close overlay and return to game
+
 }
 
 function submitFinal() {
@@ -143,5 +144,6 @@ function submitFinal() {
         },
         error: function(){
           alert("Cannot get data");
-    }
+        }
 });
+}
