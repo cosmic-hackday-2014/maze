@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 		$("#title").text("Error");
 
-		var node = '<p>Unable to load <u>' + dir + '/' + file + '</u></p>';
+		// var node = '<p>Unable to load <u>' + dir + '/' + file + '</u></p>';
 
 		$('#phaser-example').append(node);
 
