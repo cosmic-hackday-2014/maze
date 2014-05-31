@@ -12,6 +12,7 @@ function preload() {
     game.load.image('ward', 'assets/sprites/buildingmanager.png');
     game.load.image('magician', 'assets/sprites/magician.png');
     game.load.image('nurse', 'assets/sprites/nurse.png');
+    game.load.image('doctor', 'assets/sprites/doctor.png');
 }
 
 var ship;
@@ -24,6 +25,7 @@ var mapping = {
     "ward": 24006821,
     "angel": 24006801,
     "magician": 24006972,
+    "doctor": 2000000,
 }
 
 function create() {
@@ -67,6 +69,9 @@ function create() {
 
     ward = game.add.sprite(1400, 500, 'ward');
     game.physics.p2.enable(ward);
+
+    doctor = game.add.sprite(1400, 500, 'doctor');
+    game.physics.p2.enable(doctor);    
 
     //  By default the ship will collide with the World bounds,
     //  however because you have changed the size of the world (via layer.resizeWorld) to match the tilemap
@@ -138,6 +143,8 @@ function submitReturn(element) {
         game_obj = angel;
     } else if (form["id"] == "magician") {
         game_obj = magician;
+    } else if (form["id"] == "doctor") {
+        game_obj = doctor;
     }
 
     form["id"] = mapping[form["id"]];

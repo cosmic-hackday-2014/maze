@@ -48,7 +48,7 @@ ul.nav-links > li > a:hover{text-decoration: underline;}
 .phaser-version > span{margin-top: 10px; display: inline-block; margin-left: 60px; margin-right: 25px;}
 .phaser-version > a {color: #fff; text-decoration: none; background: url('../../_site/images/version-button.png') no-repeat; background-size: cover; display: inline-block; width: 123px; height: 10px; vertical-align: middle; text-align: center;padding-top:11px; padding-bottom: 11px}
 .phaser-version > a:hover{text-decoration: underline;}
-.phaser-logo{display: block; float: right; width: 168px;height: 144px; background: url('assets/sprites/thrust_ship2.png') no-repeat; margin-top: 40px; margin-right: 40px;}
+/*.phaser-logo{display: block; float: right; width: 168px;height: 144px; background: url('assets/sprites/thrust_ship2.png') no-repeat; margin-top: 40px; margin-right: 40px;}*/
 
 #upgrade {
   display: none;
