@@ -36,14 +36,14 @@
                 </div>
                 <div id="nurseOverlay" style="display:none">
                     <h1>Here's a question for you: <br>were the nurses and doctors nice?</h1>
-                        <form id="">
+                        <form onSubmit="return submitReturn(this);">
                         <input type="hidden" name="field" value="nurse">
                             <input type="radio" name="rating" value="1" /><span></span>
                             <input type="radio" name="rating" value="2" /><span></span>
                             <input type="radio" name="rating" value="3" /><span></span>
                             <input type="radio" name="rating" value="4" /><span></span>
                             <input type="radio" name="rating" value="5" /><span></span>
-                            <submit onSubmit="submitReturn">
+                            <input type="submit" value="Submit">
                         </form>
                 </div>
                 <div id="phaser-example"></div>

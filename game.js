@@ -19,6 +19,10 @@ var ship;
 var map;
 var layer;
 var cursors;
+var form_values;
+var fields = {
+    "staff": 24006641,
+}
 
 function create() {
 
@@ -50,7 +54,7 @@ function create() {
     ship.body.onBeginContact.add(blockHit, this);
     game.camera.follow(ship);
 
-    nurse = game.add.sprite(350, 250, 'nurse');
+    nurse = game.add.sprite(250, 250, 'nurse');
     game.physics.p2.enable(nurse);
 
 
@@ -119,9 +123,14 @@ function update() {
 function render() {
 }
 
-function submitReturn() {
+function submitReturn(element) {
     // submit feedback 
+    $(element).closest("div").hide();
+    // var $(element).find('();
     // close overlay and return to game
+    console.log("success");
+
+    return false;
 
 }
 
