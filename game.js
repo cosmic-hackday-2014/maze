@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 575, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
@@ -12,7 +12,6 @@ function preload() {
     game.load.image('ward', 'assets/sprites/buildingmanager.png');
     game.load.image('magician', 'assets/sprites/magician.png');
     game.load.image('nurse', 'assets/sprites/nurse.png');
-    // game.load.image('puppy', 'assets/sprites/thrust_ship2.png');
 }
 
 var ship;
