@@ -19,8 +19,11 @@ input[type="radio"] {
     display: none;
 }
 input[type="radio"]+label {
-    background: url('stars.png');
-    padding-left:30px;
+  background: url('stars.png');
+  background-size: 40px 40px;
+  padding-right: 39px;
+  padding-bottom: 18px;
+  padding-top: 4px;
 }
 
 .helvetica{font-family: Arial, Tahoma, Verdana !important;}
@@ -180,6 +183,11 @@ ul.right-controls > li{margin:0;padding:0; display: inline-block; vertical-align
 
 .overlay { color: white; opacity: 0.9; position: absolute; top: 0; left: 0; text-align: center; background-color: black; width: 100%; z-index: 5000;} 
 .overlay h1 { text-align: center; font-size: 2em; margin-top: 35%;}
+
+.overlay form {
+  position:relative;
+  line-height: 70px;
+}
 
 @media only screen and (max-width: 1235px), only screen and (max-device-width: 1235px){
   ul.nav-links{min-width:100% !important;}
