@@ -15,6 +15,14 @@ body { margin:0; padding:0; overflow-x: hidden; font-family: Arial, Tahoma, Verd
 a{color:#fff; text-decoration: none;}
 a:hover{text-decoration: underline;}
 
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]+label {
+    background: url('stars.jpg');
+    padding-left:30px;
+}
+
 .helvetica{font-family: Arial, Tahoma, Verdana !important;}
 .header{background: #e0e4f1 no-repeat; width:100%; margin:0; padding:0; background-size: cover; height: 530px; display: block; clear:both; margin-bottom: -400px}
 .main-container{display: block; clear:both; width: 1125px; height: auto; margin:0 auto;}
