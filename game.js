@@ -7,12 +7,13 @@ function preload() {
     game.load.image('ground_1x1', 'assets/tilemaps/tiles/ground_1x1.png');
     game.load.image('walls_1x2', 'assets/tilemaps/tiles/walls_1x2.png');
     game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
-    game.load.image('ship', 'assets/sprites/thrust_ship2.png');
-    game.load.image('angel', 'assets/sprites/angel.jpeg');
-    game.load.image('buildingmanager', 'assets/sprites/thrust_ship2.png');
-    game.load.image('magician', 'assets/sprites/thrust_ship2.png');
+
+    game.load.image('patient', 'assets/sprites/thrust_ship2.png');
+    game.load.image('angel', 'assets/sprites/angel.png');
+    game.load.image('ward', 'assets/sprites/buildingmanager.png');
+    game.load.image('magician', 'assets/sprites/magician.png');
     game.load.image('nurse', 'assets/sprites/nurse.png');
-    game.load.image('puppy', 'assets/sprites/thrust_ship2.png');
+    // game.load.image('puppy', 'assets/sprites/thrust_ship2.png');
 }
 
 var ship;
@@ -20,9 +21,6 @@ var map;
 var layer;
 var cursors;
 var form_values = [];
-var fields = {
-    "staff": 24006641,
-}
 
 function create() {
 
@@ -49,14 +47,22 @@ function create() {
     //  required. There is also a parameter to control optimising the map build.
     game.physics.p2.convertTilemap(map, layer);
 
-    ship = game.add.sprite(200, 200, 'ship');
-    game.physics.p2.enable(ship);
-    ship.body.onBeginContact.add(blockHit, this);
-    game.camera.follow(ship);
+    patient = game.add.sprite(200, 200, 'patient');
+    game.physics.p2.enable(patient);
+    patient.body.onBeginContact.add(blockHit, this);
+    game.camera.follow(patient);
 
     nurse = game.add.sprite(250, 150, 'nurse');
     game.physics.p2.enable(nurse);
 
+    angel = game.add.sprite(250, 150, 'angel');
+    game.physics.p2.enable(angel);
+
+    magician = game.add.sprite(250, 150, 'magician');
+    game.physics.p2.enable(magician);
+
+    ward = game.add.sprite(250, 150, 'ward');
+    game.physics.p2.enable(ward);
 
     //  By default the ship will collide with the World bounds,
     //  however because you have changed the size of the world (via layer.resizeWorld) to match the tilemap
@@ -80,38 +86,30 @@ function blockHit (body, shapeA, shapeB, equation) {
 
     var docHeight = $(document).height();
     $("#" + body.sprite.key+ "Overlay").css({"display": "block", "height": docHeight});
-
-    // console.log("hit:" + body.sprite.key);
-    // var html = $("#" + body.sprite.key);
-    // if (!html) {
-    //     return;
-    // }
-
-    // html.show();
 }
 
 function update() {
 
     if (cursors.left.isDown)
     {
-        ship.body.rotateLeft(100);
+        patient.body.rotateLeft(100);
     }
     else if (cursors.right.isDown)
     {
-        ship.body.rotateRight(100);
+        patient.body.rotateRight(100);
     }
     else
     {
-        ship.body.setZeroRotation();
+        patient.body.setZeroRotation();
     }
 
     if (cursors.up.isDown)
     {
-        ship.body.thrust(400);
+        patient.body.thrust(400);
     }
     else if (cursors.down.isDown)
     {
-        ship.body.reverse(400);
+        patient.body.reverse(400);
     }
 
 }
@@ -122,12 +120,10 @@ function render() {
 function submitReturn(element) {
     var form = {};
     $(element).closest("div").hide();
+
     $.each($(element).serializeArray(), function(i, val) {
         form[val.name] = val.value;
     });
-
-    // form_values[fields[form["field"]]] = form["rating"];
-
     form_values.push(form);
 
     var game_obj;
