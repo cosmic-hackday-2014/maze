@@ -31,7 +31,7 @@ function create() {
 
     game.physics.startSystem(Phaser.Physics.P2JS);
 
-    game.stage.backgroundColor = '#2d2d2d';
+    game.stage.backgroundColor = '#63D1F4';
 
     map = game.add.tilemap('map');
 
