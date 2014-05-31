@@ -19,7 +19,7 @@ var ship;
 var map;
 var layer;
 var cursors;
-var form_values;
+var form_values = {};
 var fields = {
     "staff": 24006641,
 }
@@ -54,7 +54,7 @@ function create() {
     ship.body.onBeginContact.add(blockHit, this);
     game.camera.follow(ship);
 
-    nurse = game.add.sprite(250, 250, 'nurse');
+    nurse = game.add.sprite(250, 150, 'nurse');
     game.physics.p2.enable(nurse);
 
 
@@ -124,14 +124,22 @@ function render() {
 }
 
 function submitReturn(element) {
-    // submit feedback 
+    var form = {};
     $(element).closest("div").hide();
-    // var $(element).find('();
-    // close overlay and return to game
-    console.log("success");
+    $.each($(element).serializeArray(), function(i, val) {
+        form[val.name] = val.value;
+    });
+
+    form_values[fields[form["field"]]] = form["rating"];
+
+    var game_obj;
+    if ("staff") {
+        game_obj = nurse;
+    }
+
+    game_obj.exists = false;
 
     return false;
-
 }
 
 function submitFinal() {
