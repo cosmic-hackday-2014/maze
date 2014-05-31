@@ -34,8 +34,35 @@
                 <div id="nurse" style="display:none">
                     <h1>Test</h1>
                 </div>
+                <div id="nurseOverlay" style="display:none">
+                    <h1>Here's a question for you: <br>were the nurses and doctors nice?</h1>
+                        <input type="radio" name="rating" value="0" checked /><span class="hide"></span>
+                        <input type="radio" name="rating" value="1" /><span></span>
+                        <input type="radio" name="rating" value="2" /><span></span>
+                        <input type="radio" name="rating" value="3" /><span></span>
+                        <input type="radio" name="rating" value="4" /><span></span>
+                        <input type="radio" name="rating" value="5" /><span></span>
+                        <button type="button" onClick="">Submit</button>
+                </div>
                 <div id="phaser-example"></div>
             </div>
         </div>
+    <script>
+    // $(function() {
+    //    var docHeight = $(document).height();
+    //        $("body").append("<div id='overlay'><form>The nurse says she has a question for you. Would you refer your friends and family to us?</form></div>");
+    //        $("#overlay")
+    //             .height(docHeight)
+    //             .css({
+    //                 'opacity' : 0.4,
+    //                 'position': 'absolute',
+    //                 'top': 0,
+    //                 'left': 0,
+    //                 'background-color': 'black',
+    //                 'width': '100%',
+    //                 'z-index': 5000
+    //         });
+    // });
+    </script>
     </body>
 </html>

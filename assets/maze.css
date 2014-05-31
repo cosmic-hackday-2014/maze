@@ -170,6 +170,9 @@ ul.right-controls > li{margin:0;padding:0; display: inline-block; vertical-align
 .px800{width:800px; clear:both; display: block; margin:0 auto; line-height: 1.5em;}
 .gradient p{color:#333;}
 
+#nurseOverlay { color: white; opacity: 0.9; position: absolute; top: 0; left: 0; text-align: center; background-color: black; width: 100%; z-index: 5000;} 
+/*#nurseOverlay h1 { color: white; text-align: center; font-size: 2em; position: absolute; top: 20;}*/
+
 @media only screen and (max-width: 1235px), only screen and (max-device-width: 1235px){
   ul.nav-links{min-width:100% !important;}
   ul.nav-links > li{display: inline-block;}

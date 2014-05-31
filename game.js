@@ -74,7 +74,13 @@ function blockHit (body, shapeA, shapeB, equation) {
         return;
     }
 
-    alert("hit:" + body.sprite.key);
+    $(function() {
+       var docHeight = $(document).height();
+            // $("body").append("<div id='nurseOverlay'><form><h1>The nurse says she has a question for you. Would you refer your friends and family to us?</h1></form></div>");
+            $("#nurseOverlay").css({"display": "block", "height": docHeight});
+            // ({ "background-color": "#ffe", "border-left": "5px solid #ccc" })
+    });
+
     console.log("hit:" + body.sprite.key);
     var html = $("#" + body.sprite.key);
     if (!html) {
