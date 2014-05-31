@@ -11,7 +11,7 @@ function preload() {
     game.load.image('angel', 'assets/sprites/angel.jpeg');
     game.load.image('buildingmanager', 'assets/sprites/thrust_ship2.png');
     game.load.image('magician', 'assets/sprites/thrust_ship2.png');
-    game.load.image('nurse', 'assets/sprites/thrust_ship2.png');
+    game.load.image('nurse', 'assets/sprites/nurse.png');
     game.load.image('puppy', 'assets/sprites/thrust_ship2.png');
 }
 
@@ -19,7 +19,7 @@ var ship;
 var map;
 var layer;
 var cursors;
-var form_values = {};
+var form_values = [];
 var fields = {
     "staff": 24006641,
 }
@@ -78,20 +78,16 @@ function blockHit (body, shapeA, shapeB, equation) {
         return;
     }
 
-    $(function() {
-       var docHeight = $(document).height();
-            // $("body").append("<div id='nurseOverlay'><form><h1>The nurse says she has a question for you. Would you refer your friends and family to us?</h1></form></div>");
-            $("#nurseOverlay").css({"display": "block", "height": docHeight});
-            // ({ "background-color": "#ffe", "border-left": "5px solid #ccc" })
-    });
+    var docHeight = $(document).height();
+    $("#" + body.sprite.key+ "Overlay").css({"display": "block", "height": docHeight});
 
-    console.log("hit:" + body.sprite.key);
-    var html = $("#" + body.sprite.key);
-    if (!html) {
-        return;
-    }
+    // console.log("hit:" + body.sprite.key);
+    // var html = $("#" + body.sprite.key);
+    // if (!html) {
+    //     return;
+    // }
 
-    html.show();
+    // html.show();
 }
 
 function update() {
@@ -130,7 +126,9 @@ function submitReturn(element) {
         form[val.name] = val.value;
     });
 
-    form_values[fields[form["field"]]] = form["rating"];
+    // form_values[fields[form["field"]]] = form["rating"];
+
+    form_values.push(form);
 
     var game_obj;
     if ("staff") {
