@@ -118,3 +118,30 @@ function update() {
 
 function render() {
 }
+
+function submitReturn() {
+    // submit feedback 
+    // close overlay and return to game
+}
+
+function submitFinal() {
+    // send new ticket to Zendesk
+    $.ajax({
+        url: "https://cosmichackday.zendesk.com/api/v2/tickets.json",
+        beforeSend: function(xhr) { 
+          xhr.setRequestHeader("Authorization", "Basic " + btoa("username:password")); 
+        },
+        type: 'POST',
+        user: 'gregoryloyse@gmail.com%sFtoken',
+        password: 'Ki3B7LsAblJnzfsj2SrAcFvB2KrvFRn4DqCuGCBR',
+        dataType: 'json',
+        contentType: 'application/json',
+        processData: false,
+        data: '{"ticket":{"subject":"My printer is on fire!", "custom_fields":[{"id": "24006641", "value": 4}], "comment": { "body": "AWEF" }}}',
+        success: function (data) {
+          alert(JSON.stringify(data));
+        },
+        error: function(){
+          alert("Cannot get data");
+    }
+});
