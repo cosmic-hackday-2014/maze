@@ -8,7 +8,7 @@ function preload() {
     game.load.image('walls_1x2', 'assets/tilemaps/tiles/walls_1x2.png');
     game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
 
-    game.load.image('patient', 'assets/sprites/thrust_ship2.png');
+    game.load.image('patient', 'assets/sprites/patient.png');
     game.load.image('angel', 'assets/sprites/angel.png');
     game.load.image('ward', 'assets/sprites/buildingmanager.png');
     game.load.image('magician', 'assets/sprites/magician.png');
