@@ -153,7 +153,7 @@ function submitReturn(element) {
 
     game_obj.exists = false;
 
-    if (form_values.length == 4) {
+    if (form_values.length == 5) {
         submitFinal();
     }
 
