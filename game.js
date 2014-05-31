@@ -20,6 +20,12 @@ var map;
 var layer;
 var cursors;
 var form_values = [];
+var mapping = {
+    "nurse": 24006641,
+    "ward": 24006821,
+    "angel": 24006801,
+    "magician": 24006972,
+}
 
 function create() {
 
@@ -123,32 +129,55 @@ function submitReturn(element) {
     $.each($(element).serializeArray(), function(i, val) {
         form[val.name] = val.value;
     });
-    form_values.push(form);
 
     var game_obj;
-    if ("staff") {
+    if (form["id"] == "nurse") {
         game_obj = nurse;
+    } else if (form["id"] == "ward") {
+        game_obj = ward;
+    } else if (form["id"] == "angel") {
+        game_obj = angel;
+    } else if (form["id"] == "magician") {
+        game_obj = magician;
     }
 
+    form["id"] = mapping[form["id"]];
+
+    form_values.push(form);
+
     game_obj.exists = false;
+
+    if (form_values.length == 4) {
+        submitFinal();
+    }
 
     return false;
 }
 
 function submitFinal() {
     // send new ticket to Zendesk
+    var form_data = {
+        "ticket": {
+            "subject": "My printer is on fire!",
+            "custom_fields":form_values,
+            "comment": {"body": "AWEF"}
+        }
+    };
+
+    alert("submit:" + form_data);
+
     $.ajax({
         url: "https://cosmichackday.zendesk.com/api/v2/tickets.json",
         beforeSend: function(xhr) { 
           xhr.setRequestHeader("Authorization", "Basic " + btoa("username:password")); 
         },
         type: 'POST',
-        user: 'gregoryloyse@gmail.com%sFtoken',
+        user: 'gregoryloyse@gmail.com%2Ftoken',
         password: 'Ki3B7LsAblJnzfsj2SrAcFvB2KrvFRn4DqCuGCBR',
         dataType: 'json',
         contentType: 'application/json',
         processData: false,
-        data: '{"ticket":{"subject":"My printer is on fire!", "custom_fields":[{"id": "24006641", "value": 4}], "comment": { "body": "AWEF" }}}',
+        data: form_data,
         success: function (data) {
           alert(JSON.stringify(data));
         },
