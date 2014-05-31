@@ -25,7 +25,7 @@ var mapping = {
     "ward": 24006821,
     "angel": 24006801,
     "magician": 24006972,
-    "doctor": 2000000,
+    "doctor": 24007122,
 }
 
 function create() {
