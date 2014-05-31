@@ -28,6 +28,7 @@ input[type="radio"]+label {
 
 .helvetica{font-family: Arial, Tahoma, Verdana !important;}
 .header{background: #e0e4f1 no-repeat; width:100%; margin:0; padding:0; background-size: cover; height: 530px; display: block; clear:both; margin-bottom: -400px}
+.header h1 { padding:50px; padding-bottom: 0px; color: #808080; font-size:2em; line-height:1.4; text-align:center;}
 .main-container{display: block; clear:both; width: 1125px; height: auto; margin:0 auto;}
 
 ul.nav-links{ margin:0; padding:0; display: inline-block; float: right; list-style-type: none; color: #fff; font-size: 15px; line-height: 2em; margin-top: 50px; min-width: 180px;}
