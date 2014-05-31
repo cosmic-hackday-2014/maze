@@ -7,8 +7,7 @@ function preload() {
     game.load.image('ground_1x1', 'assets/tilemaps/tiles/ground_1x1.png');
     game.load.image('walls_1x2', 'assets/tilemaps/tiles/walls_1x2.png');
     game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
-
-    game.load.image('patient', 'assets/sprites/thrust_ship2.png');
+    game.load.image('patient', 'assets/sprites/patient.png');
     game.load.image('angel', 'assets/sprites/angel.png');
     game.load.image('ward', 'assets/sprites/buildingmanager.png');
     game.load.image('magician', 'assets/sprites/magician.png');
@@ -52,16 +51,16 @@ function create() {
     patient.body.onBeginContact.add(blockHit, this);
     game.camera.follow(patient);
 
-    nurse = game.add.sprite(250, 150, 'nurse');
+    nurse = game.add.sprite(500, 150, 'nurse');
     game.physics.p2.enable(nurse);
 
-    angel = game.add.sprite(250, 150, 'angel');
+    angel = game.add.sprite(600, 30, 'angel');
     game.physics.p2.enable(angel);
 
-    magician = game.add.sprite(250, 150, 'magician');
+    magician = game.add.sprite(100, 500, 'magician');
     game.physics.p2.enable(magician);
 
-    ward = game.add.sprite(250, 150, 'ward');
+    ward = game.add.sprite(1400, 500, 'ward');
     game.physics.p2.enable(ward);
 
     //  By default the ship will collide with the World bounds,
